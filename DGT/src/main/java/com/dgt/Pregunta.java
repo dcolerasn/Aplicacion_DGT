@@ -26,15 +26,24 @@ public class Pregunta {
     private String r4;
     private String rc;
     private String rd;
+    private String ref;
 
-    public Pregunta(String enunciado, String r1, String r2, String r3, String r4, String rc) {
+    public Pregunta(String enunciado, String r1, String r2, String r3, String rc, String ref) {
         this.enunciado = enunciado;
         this.r1 = r1;
         this.r2 = r2;
         this.r3 = r3;
-        this.r4 = r4;
         this.rc = rc;
+        this.ref = ref;
         this.rd = null;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
     public String getEnunciado() {
@@ -67,14 +76,6 @@ public class Pregunta {
 
     public void setR3(String r3) {
         this.r3 = r3;
-    }
-
-    public String getR4() {
-        return r4;
-    }
-
-    public void setR4(String r4) {
-        this.r4 = r4;
     }
 
     public String getRc() {
