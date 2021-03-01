@@ -1,7 +1,6 @@
 package com.dgt;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,13 +15,12 @@ import java.util.Random;
 public class Preguntas {
     public List <Pregunta> listaPreguntas;    
     public List <Pregunta> listaPreguntasEx;
-    public List listaNumeros;
+    public List  listaNumeros;
     public int n = 0;
     final public int nPreguntas = 10;
     private BufferedReader fichero;
-    private File archivo;
     
-    public Preguntas(){
+    public Preguntas(String fich){
         listaPreguntas = new ArrayList<>();
         listaNumeros = new ArrayList<>();
         listaPreguntasEx = new ArrayList<>();
@@ -30,8 +28,7 @@ public class Preguntas {
         listaNumeros.clear();
 //Creamos una listaPreguntas con todas las preguntas del archivo trafico.csv
         try {
-            String a = "C:\\Archivos\\trafico.csv";
-            fichero = new BufferedReader(new InputStreamReader(new FileInputStream(a), "utf-8"));  
+            fichero = new BufferedReader(new InputStreamReader(new FileInputStream(fich), "utf-8"));  
             String linea;
             while((linea = fichero.readLine())!=null){
                 String [] campos = linea.split(";");
@@ -42,12 +39,13 @@ public class Preguntas {
                 String rc = campos[4];
                 String ref = campos[5];
                 listaPreguntas.add(new Pregunta(enunciado,r1,r2,r3,rc,ref));
-                System.out.println(linea.length());
             }
 
         } catch (IOException ex) {
            System.out.println(ex);
         }
+        
+
     //Creamos una listaNumeros que contiene x(nPreguntas números números random sacados del tamaño de la listaPregutas
         while(listaNumeros.size()<nPreguntas){
             int numero = r.nextInt(listaPreguntas.size());
@@ -66,6 +64,12 @@ public class Preguntas {
             listaPreguntas.clear();
             System.out.println(listaPreguntasEx.size());
         }
+
+
+    public List getLista(){
+        return listaPreguntasEx;
     }
+}
+
 
 

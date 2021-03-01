@@ -13,14 +13,6 @@ public class Pregunta {
 
     private String enunciado;
     private String r1;
-
-    public String getRd() {
-        return rd;
-    }
-
-    public void setRd(String rd) {
-        this.rd = rd;
-    }
     private String r2;
     private String r3;
     private String r4;
@@ -38,6 +30,14 @@ public class Pregunta {
         this.rd = null;
     }
 
+    public String getRd() {
+        return rd;
+    }
+
+    public void setRd(String rd) {
+        this.rd = rd;
+    }
+    
     public String getRef() {
         return ref;
     }
